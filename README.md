@@ -12,8 +12,6 @@
 - 造价管理 cost
 - 三维全景 video
 - 森林数据 forest
-- 合同管理 contractcare
-- 图档管理 drawingcare
 - 数据资源 dataresource
 - 个人中心 selfcare （个人任务）
 - 系统设置 system
