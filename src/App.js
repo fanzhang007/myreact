@@ -21,18 +21,17 @@ class App extends Component {
             }
         ];
         let aa = ownerArr.map(item => {
-            return item.pets[0].name
-        })
-        console.log('aa--',aa);
+            return item.pets[0].name;
+        });
+        console.log('aa--', aa);
+        let bb = _.map(ownerArr, 'pets[0].name');
+        console.log('bb--', bb);
 
-        let bb = _.map(ownerArr,'pets[0].name');
-        console.log('bb--',bb)
-        console.log('------------');
-        let objA = {"name": "zhangsan", "car": "BMW X6", "age": 28};
-        let objB = _.pick(objA,['name','age']);
-        objA = _.omit(objA,['name','age']);
-        console.log('objA--',objA);
-        console.log('objB--',objB)
+        let objA = { name: 'zhangsan', car: 'BMW X6', age: 28 };
+        let objB = _.pick(objA, ['name', 'age']);
+        objA = _.omit(objA, ['name', 'age']);
+        console.log('objA--', objA);
+        console.log('objB--', objB);
     };
 
     render() {
