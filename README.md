@@ -8,8 +8,6 @@
 - 资料管理 datum
 - 设计管理 design
 - 质量管理 quality
-- XA进度管理 schedule
-- QH进度管理 scheduleqh 
 - 安全管理 safety
 - 造价管理 cost
 - 三维全景 video
