@@ -3,11 +3,65 @@ import logo from './logo.svg';
 import './App.css';
 import { Button } from 'antd';
 import _ from 'lodash';
+import $ from 'jquery';
+import axios from 'axios'
+
+const headers = {
+	'Content-Type': 'application/json'
+};
 
 class App extends Component {
-    btnClick = value => {
-        alert(`欢迎使用${value}哦！`);
+
+    btnClick = async(value) => {
+        let url = 'http://bimcd.ecidi.com:6544/accounts/api/users/526/'
+        const params = {
+            headers: headers,
+            method: 'GET'
+        };
+        // let rst = fetch(url).then(async res => {
+        //     console.log('res-',res)
+        //     let aa = await res.json();
+        //     console.log('aa-',aa)
+        //     return aa
+        // })
+        fetch(url).then(res => {
+            console.log('res22-',res)
+            let sss = res.json()
+            console.log('sss22-',sss);
+            return sss
+        }).then(rst => {
+            console.log('rst2-',rst)
+        })
+        let rst = await fetch(url).then(res => {
+            console.log('res-',res)
+            let sss = res.json()
+            console.log('sss-',sss);
+            return sss
+        })
+        console.log('rst-',rst)
     };
+
+    ajaxbtnClick = () => {
+        let url = 'https://api.douban.com/v2/movie/subject/1764796'
+        $.ajax({
+            url: url,
+            type:'GET',
+            dataType:'jsonp',
+            // success: function(res){
+            //     console.log('res',res)
+            // }
+        }).then(res => {
+            console.log('res-',res)
+        })
+    }
+    axiosbtnClick = () => {
+        axios({
+            method:'get',
+            url:'https://api.douban.com/v2/movie/subject/1764796'
+        }).then(res => {
+            console.log('res-',res);
+        })
+    }
 
     lodashClick = () => {
         let ownerArr = [
@@ -48,10 +102,25 @@ class App extends Component {
                 <div>
                     <h2>开始我的表演了！！</h2>
                     <Button
+                        style={{marginRight:10}}
                         type="primary"
                         onClick={() => this.btnClick('antdBtn')}
                     >
-                        antdbutton
+                        fetchButton
+                    </Button>
+                    <Button
+                        style={{marginRight:10}}
+                        type="primary"
+                        onClick={() => this.ajaxbtnClick('antdBtn')}
+                    >
+                        ajaxButton
+                    </Button>
+                    <Button
+                        style={{marginRight:10}}
+                        type="primary"
+                        onClick={() => this.axiosbtnClick('antdBtn')}
+                    >
+                        axiosButton
                     </Button>
                     <Button type="danger" onClick={() => this.lodashClick()}>
                         lodash测试
