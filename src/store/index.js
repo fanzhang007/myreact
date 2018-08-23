@@ -1,16 +1,28 @@
 import { handleActions, createAction } from 'redux-actions';
 
-const addAction = createAction('ADD');
+const numAction = createAction('NUM');
+const arrAction = createAction('ARR');
+const objAction = createAction('OBJ');
 
 export const actions = {
-    addAction
+    numAction,
+    arrAction,
+    objAction
 }
 
 export default handleActions(
     {
-        [addAction]: (state, { payload }) => ({
+        [numAction]: (state, { payload }) => ({
             ...state,
-            add: payload
+            num: payload
+        }),
+        [arrAction]: (state, { payload }) => ({
+            ...state,
+            arr: payload
+        }),
+        [objAction]: (state, { payload }) => ({
+            ...state,
+            obj: payload
         })
     },
     {}

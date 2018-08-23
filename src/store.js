@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import reducer from './store'
+import reducer from './store/index'
 
 const initialState = window.___INITIAL_STATE__;
 

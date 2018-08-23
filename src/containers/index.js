@@ -7,6 +7,7 @@ import Child from '../components/Child.js';
 
 @connect(
     state => {
+        console.log('state: ',state)
         const { appstore = {} } = state || {};
         return appstore
     },
@@ -16,7 +17,10 @@ import Child from '../components/Child.js';
 )
 
 export default class App extends Component {
+
     render() {
+        const { obj = {} } = this.props;
+        console.log('obj-',obj)
         return (
             <Child {...this.props}/>
         )
